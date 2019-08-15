@@ -133,12 +133,16 @@
 <div id="map-the-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#map-the-data" class="anchor"></a>Map the data</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">map_it &lt;-<span class="st"> </span><span class="kw"><a href="../reference/map_sites.html">map_sites</a></span>(df_melt, </a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">                    <span class="dt">data_element =</span> <span class="st">"Volume_mgd"</span>,</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">                    <span class="dt">year =</span> <span class="dv">2010</span>,</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">                    <span class="dt">state =</span> <span class="st">"Ohio"</span>)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">map_it</a></code></pre></div>
+<p>Let’s look at “AS” sites in August:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">s_wuds &lt;-<span class="st"> </span>df_melt[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/which">which</a></span>(df_melt<span class="op">$</span>FROM_SITE_TP_CD <span class="op">==</span><span class="st"> "AS"</span> <span class="op">&amp;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">                          </span>df_melt<span class="op">$</span>Month_num <span class="op">==</span><span class="st"> </span><span class="dv">8</span>), ]</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">map_it &lt;-<span class="st"> </span><span class="kw"><a href="../reference/map_sites.html">map_sites</a></span>(df_melt, </a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">                    <span class="dt">data_element =</span> <span class="st">"Volume_mgd"</span>,</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">                    <span class="dt">year =</span> <span class="dv">2010</span>,</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">                    <span class="dt">state =</span> <span class="st">"Ohio"</span>)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">map_it</a></code></pre></div>
 </div>
   </div>
 
