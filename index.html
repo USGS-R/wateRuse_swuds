@@ -103,10 +103,10 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">pathToSample &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>,<span class="dt">package =</span> <span class="st">"wateRuseSWUDS"</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># Read in the water quantity table</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">dq &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_swuds_quant.html">read_swuds_quant</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/file.path">file.path</a></span>(pathToSample,<span class="st">"OH_CTF_SW_monthly_permit_sample_data.xlsx"</span>))</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">dq &lt;-<span class="st"> </span><span class="kw"><a href="reference/importers.html">read_swuds_quant</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/file.path">file.path</a></span>(pathToSample,<span class="st">"OH_CTF_SW_monthly_permit_sample_data.xlsx"</span>))</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co"># Read in the population served table</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">dp &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_swuds_pop.html">read_swuds_pop</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/file.path">file.path</a></span>(pathToSample,<span class="st">"OHpopserved_output.xlsx"</span>))</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">dp &lt;-<span class="st"> </span><span class="kw"><a href="reference/importers.html">read_swuds_pop</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/file.path">file.path</a></span>(pathToSample,<span class="st">"OHpopserved_output.xlsx"</span>))</a>
 <a class="sourceLine" id="cb1-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co"># merge the tables</span></a>
 <a class="sourceLine" id="cb1-10" data-line-number="10">df &lt;-<span class="st"> </span><span class="kw"><a href="reference/merge_dq_dp.html">merge_dq_dp</a></span>(dq, dp)</a>

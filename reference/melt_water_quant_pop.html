@@ -160,8 +160,8 @@ year to the mergeWaterQuantPopServe data frame</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>pathToSample</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>,<span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"wateRuseSWUDS"</span>)
-<span class='no'>dp</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='read_swuds_pop.html'>read_swuds_pop</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/file.path'>file.path</a></span>(<span class='no'>pathToSample</span>,<span class='st'>"OHpopserved_output.xlsx"</span>))
-<span class='no'>dq</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='read_swuds_quant.html'>read_swuds_quant</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/file.path'>file.path</a></span>(<span class='no'>pathToSample</span>,
+<span class='no'>dp</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='importers.html'>read_swuds_pop</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/file.path'>file.path</a></span>(<span class='no'>pathToSample</span>,<span class='st'>"OHpopserved_output.xlsx"</span>))
+<span class='no'>dq</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='importers.html'>read_swuds_quant</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/file.path'>file.path</a></span>(<span class='no'>pathToSample</span>,
               <span class='st'>"OH_CTF_SW_monthly_permit_sample_data.xlsx"</span>))
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='merge_dq_dp.html'>merge_dq_dp</a></span>(<span class='no'>dq</span>, <span class='no'>dp</span>)
 <span class='no'>df_melt</span> <span class='kw'>&lt;-</span> <span class='fu'>melt_water_quant_pop</span>(<span class='no'>df</span>)</div></pre>

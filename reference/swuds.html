@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>aggregate functions — aggregate_swuds • wateRuseSWUDS</title>
+<title>Load and check swuds data — create_swuds • wateRuseSWUDS</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -37,9 +37,9 @@
 
 
 
-<meta property="og:title" content="aggregate functions — aggregate_swuds" />
+<meta property="og:title" content="Load and check swuds data — create_swuds" />
 
-<meta property="og:description" content="Allows user to aggregate their data from SWUDS by user-defined parameters." />
+<meta property="og:description" content="Load and check swuds data" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -133,52 +133,70 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>aggregate functions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/USGS-R/wateruse_swuds/blob/master/R/aggregate.R'><code>R/aggregate.R</code></a></small>
-    <div class="hidden name"><code>aggregate.Rd</code></div>
+    <h1>Load and check swuds data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/USGS-R/wateruse_swuds/blob/master/R/create_swuds.R'><code>R/create_swuds.R</code></a></small>
+    <div class="hidden name"><code>swuds.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Allows user to aggregate their data from SWUDS by user-defined parameters.</p>
+    <p>Load and check swuds data</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>aggregate_swuds</span>(<span class='no'>s_wuds</span>, <span class='no'>filter_by</span>, <span class='kw'>filter_val</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>aggregate_by</span> <span class='kw'>=</span> <span class='st'>"Volume_mgd"</span>)</pre>
+    <pre class="usage"><span class='fu'>create_swuds</span>(<span class='no'>path_pop</span>, <span class='no'>path_quant</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for swuds</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='fu'>as_swuds</span>(<span class='no'>dq</span>, <span class='kw'>dp</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>s_wuds</th>
-      <td><p>swuds object (data frame from melt function)</p></td>
+      <th>path_pop</th>
+      <td><p>file path to Excel file of population file</p></td>
     </tr>
     <tr>
-      <th>filter_by</th>
-      <td><p>chr, column to filter and aggregate by</p></td>
+      <th>path_quant</th>
+      <td><p>file path to Excel file of water quantity file</p></td>
     </tr>
     <tr>
-      <th>filter_val</th>
-      <td><p>values to filter to</p></td>
+      <th>&#8230;</th>
+      <td><p>additional paremeters sent to <code>as_swuds</code>.</p></td>
     </tr>
     <tr>
-      <th>aggregate_by</th>
-      <td><p>column to aggregate. Defaults to "Volume_mgd"</p></td>
+      <th>object</th>
+      <td><p>swuds object</p></td>
+    </tr>
+    <tr>
+      <th>dq</th>
+      <td><p>data frame quanity</p></td>
+    </tr>
+    <tr>
+      <th>dp</th>
+      <td><p>data frame population</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>s_wuds</span> <span class='kw'>&lt;-</span> <span class='no'>swuds_sample</span> <span class='co'>#example data from Ohio</span>
-<span class='no'>test_all_huc</span> <span class='kw'>&lt;-</span> <span class='fu'>aggregate_swuds</span>(<span class='no'>s_wuds</span>, <span class='st'>"FROM_HUC_CD"</span>)
-<span class='no'>test_some_huc</span> <span class='kw'>&lt;-</span> <span class='fu'>aggregate_swuds</span>(<span class='no'>s_wuds</span>, <span class='st'>"FROM_HUC_CD"</span>,
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"041000040104"</span>, <span class='st'>"050600020105"</span>))
-<span class='no'>test_some_years</span> <span class='kw'>&lt;-</span> <span class='fu'>aggregate_swuds</span>(<span class='no'>s_wuds</span>, <span class='st'>"YEAR"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"1995"</span>, <span class='st'>"2004"</span>))
-<span class='co'>#test_some_aquifers &lt;- aggregate_swuds(s_wuds, "aquifer", "TBD")</span>
-<span class='no'>test_some_months</span> <span class='kw'>&lt;-</span> <span class='fu'>aggregate_swuds</span>(<span class='no'>s_wuds</span>, <span class='st'>"Month"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Jan"</span>, <span class='st'>"Feb"</span>))
-<span class='no'>test_some_state_county</span> <span class='kw'>&lt;-</span> <span class='fu'>aggregate_swuds</span>(<span class='no'>s_wuds</span>, <span class='st'>"state_county"</span>, <span class='st'>"39033"</span>)
-<span class='no'>test_some_seasons</span> <span class='kw'>&lt;-</span> <span class='fu'>aggregate_swuds</span>(<span class='no'>s_wuds</span>, <span class='st'>"season"</span>, <span class='st'>"Fall"</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>path_to_data</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"wateRuseSWUDS"</span>)
+<span class='no'>file_name_1</span> <span class='kw'>&lt;-</span> <span class='st'>"OH_CTF_SW_monthly_permit_sample_data.xlsx"</span>
+<span class='no'>file_name_2</span> <span class='kw'>&lt;-</span> <span class='st'>"OHpopserved_output.xlsx"</span>
+<span class='no'>excel_path_quant</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/file.path'>file.path</a></span>(<span class='no'>path_to_data</span>, <span class='no'>file_name_1</span>)
+<span class='no'>excel_path_pop</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/file.path'>file.path</a></span>(<span class='no'>path_to_data</span>, <span class='no'>file_name_2</span>)
+<span class='no'>swuds_1</span> <span class='kw'>&lt;-</span> <span class='fu'>create_swuds</span>(<span class='no'>excel_path_pop</span>, <span class='no'>excel_path_quant</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>swuds_1</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 3
+#&gt;   FROM_AGENCY_CD FROM_SITE_NO    FROM_STATION_NM         
+#&gt;   &lt;chr&gt;          &lt;chr&gt;           &lt;chr&gt;                   
+#&gt; 1 OH004          404325082475900 GALION WATER DEPARTMENT 
+#&gt; 2 OH004          404325082475900 GALION WATER DEPARTMENT 
+#&gt; 3 OH004          404325082475900 GALION WATER DEPARTMENT 
+#&gt; 4 USGS           382606082360000 ALLIED CHEMICAL CORP WU1
+#&gt; 5 USGS           383012082394900 ALLIED CHEMICAL CORP WU2
+#&gt; 6 USGS           383200082400100 DAYTON MALLEABLE IRON CO</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
