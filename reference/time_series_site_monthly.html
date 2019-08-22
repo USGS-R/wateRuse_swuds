@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • wateRuseSWUDS</title>
+<title>Monthly Time Series — time_series_site_monthly • wateRuseSWUDS</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -37,7 +37,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Monthly Time Series — time_series_site_monthly" />
+
+<meta property="og:description" content="Plot water use monthly (volume_mgd) overlaying multiple years" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -67,7 +69,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -129,108 +131,48 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Monthly Time Series</h1>
+    <small class="dont-index">Source: <a href='https://github.com/USGS-R/wateruse_swuds/blob/master/R/time_series_site_monthly.R'><code>R/time_series_site_monthly.R</code></a></small>
+    <div class="hidden name"><code>time_series_site_monthly.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Plot water use monthly (volume_mgd) overlaying multiple years</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="aggregate.html">aggregate_swuds()</a></code> </p>
-        </td>
-        <td><p>aggregate functions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="explore_swuds.html">explore_swuds()</a></code> </p>
-        </td>
-        <td><p>Explore data in the shiny application</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="importers.html">read_swuds_quant()</a></code> <code><a href="importers.html">read_swuds_pop()</a></code> </p>
-        </td>
-        <td><p>Read Excel file Water Quantity</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="map_sites.html">map_sites()</a></code> </p>
-        </td>
-        <td><p>map_sites</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="melt_water_quant_pop.html">melt_water_quant_pop()</a></code> </p>
-        </td>
-        <td><p>melt_water_quant_pop</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="merge_dq_dp.html">merge_dq_dp()</a></code> </p>
-        </td>
-        <td><p>Merge Water Quantity and Population</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="subset_county_polygons.html">subset_county_polygons()</a></code> </p>
-        </td>
-        <td><p>subset_county_polygons</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="subset_huc_polygons.html">subset_huc_polygons()</a></code> </p>
-        </td>
-        <td><p>subset_huc_polygons</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="swuds.html">create_swuds()</a></code> <code><a href="swuds.html">summary(<i>&lt;swuds&gt;</i>)</a></code> <code><a href="swuds.html">as_swuds()</a></code> </p>
-        </td>
-        <td><p>Load and check swuds data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="swuds_sample.html">swuds_sample</a></code> </p>
-        </td>
-        <td><p>Example Water Use Data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="time_series_site_monthly.html">time_series_site_monthly()</a></code> </p>
-        </td>
-        <td><p>Monthly Time Series</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="wateRuseSWUDS-package.html">wateRuseSWUDS-package</a></code> </p>
-        </td>
-        <td><p>wateRuseSWUDS</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>time_series_site_monthly</span>(<span class='no'>s_wuds</span>, <span class='no'>FROM_SITE_NUM</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>s_wuds</th>
+      <td><p>dataframe, the swuds water use data</p></td>
+    </tr>
+    <tr>
+      <th>FROM_SITE_NUM</th>
+      <td><p>chr, site number agency and site_no unigue to site</p></td>
+    </tr>
     </table>
-  </div>
+    
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>s_wuds</span> <span class='kw'>&lt;-</span> <span class='no'>swuds_sample</span> <span class='co'>#example data from Ohio</span>
+<span class='no'>FROM_SITE_NUM</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"410233083375001"</span>)
+<span class='no'>testp2</span> <span class='kw'>&lt;-</span> <span class='fu'>time_series_site_monthly</span>(<span class='no'>s_wuds</span>, <span class='no'>FROM_SITE_NUM</span>)</div><div class='img'><img src='time_series_site_monthly-1.png' alt='' width='700' height='433' /></div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+            
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 
