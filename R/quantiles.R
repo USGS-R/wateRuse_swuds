@@ -30,15 +30,17 @@
 #'
 #'  
 
-filtered_quantiles_segment <- function(filtered, quant, segment) 
- 
+filtered_quantiles_segment <- function(filtered, quant, segment)
+  
+  #  Possible modification: Default as written determines ANNUAL_VAL percentiles for all (filtered) sites and years together 
+  #  Possible modification: Use this for percentiles based on mean of ANNUAL_VAL, BY SITE = sitemeanANNUAL_VAL
   #  Add mean of ANNUAL_VAL by FROM_SITE_NO for quantile evaluation, join to filtered
   #  s_wuds_sitemean <- s_wuds %>% group_by(FROM_SITE_NO) %>% dplyr::mutate(sitemeanANNUAL_VAL = mean(ANNUAL_VAL))
   #  s_wuds_sitemeanb <- subset(s_wuds_sitemean, select = c(FROM_SITE_NO, dec_date, sitemeanANNUAL_VAL))
-  #  df2 <- merge(filtered, s_wuds_sitemeanb, all.x=TRUE) # Use this if want percentiles based on mean of all ANNUAL_VAL
+  #  df2 <- merge(filtered, s_wuds_sitemeanb, all.x=TRUE) 
   
   
-    if (quant == "quartile"){    # this percentile based on ANNUAL_VAL:
+    if (quant == "quartile"){    # this percentile based on ANNUAL_VAL for all (filtered) sites and years together
       
       filtered_quantiles <- filtered %>%       
         mutate(quartile = ntile(ANNUAL_VAL, 4))
